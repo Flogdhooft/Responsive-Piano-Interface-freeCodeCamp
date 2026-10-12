@@ -1,57 +1,74 @@
-html {
+*, ::before, ::after {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+body {
+  background-color: #1413661c;
 }
 
-#piano {
-  background-color: #00471b;
+.piano {
+  position: relative;
   width: 992px;
   height: 290px;
-  margin: 80px auto;
+  margin: 120px auto;
   padding: 90px 20px 0 20px;
-  position: relative;
-  border-radius: 10px;
+  background-color: #a51d3a;
+  border-radius: 16px;
+  box-shadow: 0px 15px #661325;
+  border: 3px solid #00000028;
+}
+
+.logo {
+  position: absolute;
+  top: 23px;
+  width: 200px;
 }
 
 .keys {
-  background-color: #040404;
   width: 949px;
   height: 180px;
   padding-left: 2px;
+  background-color: #040404;
+  border-radius: 0 0 5px 5px;
   overflow: hidden;
 }
 
 .key {
-  background-color: #ffffff;
   position: relative;
+  float: left;
   width: 41px;
   height: 175px;
   margin: 2px;
-  float: left;
+  background-color: #ffffff;
   border-radius: 0 0 3px 3px;
+  border-bottom: 6px solid rgb(216, 216, 216);
 }
 
 .key.black--key::after {
-  background-color: #1d1e22;
   content: "";
   position: absolute;
   left: -18px;
   width: 32px;
   height: 100px;
+  background-color: #1d1e22;
   border-radius: 0 0 3px 3px;
+  border-bottom: 6px solid rgb(56, 6, 6);
 }
 
-.logo {
-  width: 200px;
-  position: absolute;
-  top: 23px;
+/* 
+À corriger pour l'animation : 
+Les black keys ne réagissent pas à l'hover, car elle sont définies par ::after
+Et elles sont donc impactées par l'hover sur les touches blanches adjacentes 
+*/
+
+.key:hover{
+  background-color: rgb(236, 238, 255);
+  border-bottom: 6px solid rgb(144, 149, 187);
+  transform: translate(0, 2px);
 }
 
 @media (max-width: 768px) {
-  #piano {
+  .piano {
     width: 358px;
   }
 
@@ -65,7 +82,7 @@ html {
 }
 
 @media (max-width: 1199px) and (min-width: 769px) {
-  #piano {
+  .piano {
     width: 675px;
   }
 
